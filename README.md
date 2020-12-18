@@ -61,7 +61,7 @@ Reselect uses its `defaultMemoize` utility (which it also exposes) in its `creat
 ## Syntax
 
 ```javascript
-Function.memoize(fn [, options])
+var memoFn = Function.memoize(fn [, options])
 ```
 `fn` is the function to be memoized. (It should be a pure function.)
 
@@ -69,6 +69,9 @@ Function.memoize(fn [, options])
 * `select` a function that takes all of the arguments passed to the memoized function as inputs and outputs an iterable that serves as the comparison keys to the memoization cache.
 * `hash` a function that takes either the arguments passed to the memoized function, or the elements in the iterable returned by `select` if it is also declared, and returns a single value to be used as the comparison key for the memoization cache.
 * `compare` a function that takes each key defined by `select` and/or `hash` or the raw arguments as passed to the memoized function (if neither `select` or `hash` are declared) and the corresponding key from memoized calls and outputs `true` if the two keys are equal and `false` otherwise.
+
+**Return**
+`memoFn` a new function that wraps the passed function and returns the result of a direct call or a saved value as determined by the memoization algorithm.
 
 ### Examples
 
