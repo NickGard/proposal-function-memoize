@@ -151,7 +151,7 @@ Function.memoize = (function() {
     return function() {
       const keys =
         hash && select
-          ? hash(select(...arguments))
+          ? [hash(select(...arguments))]
           : hash
           ? [hash(...arguments)]
           : select
